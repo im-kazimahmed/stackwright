@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Privora</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-primary:#0a0a0f;
+      --bg-secondary:#12121a;
+      --bg-card:#1a1a24;
+      --bg-elevated:#222230;
+      --accent-primary:#6366f1;
+      --accent-secondary:#818cf8;
+      --accent-glow:rgba(99,102,241,.15);
+      --text-primary:#f1f5f9;
+      --text-secondary:#94a3b8;
+      --text-muted:#64748b;
+      --border-color:rgba(148,163,184,.1);
+      --success:#22c55e;
+      --warning:#f59e0b;
+      --error:#ef4444;
+      --gradient-1:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#a855f7 100%);
+      --gradient-2:linear-gradient(135deg,#0ea5e9 0%,#6366f1 100%);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+      background:var(--bg-primary);
+      color:var(--text-primary);
+      line-height:1.7;
+      min-height:100vh;
+    }
+
+    /* Animated background */
+    .bg-pattern{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+    .bg-pattern::before{
+      content:'';
+      position:absolute;top:-50%;left:-50%;
+      width:200%;height:200%;
+      background:
+        radial-gradient(circle at 20% 20%, var(--accent-glow) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(139,92,246,.1) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(14,165,233,.05) 0%, transparent 50%);
+      animation:floatBg 20s ease-in-out infinite;
+    }
+    @keyframes floatBg{
+      0%,100%{transform:translate(0,0) rotate(0deg);}
+      25%{transform:translate(2%,2%) rotate(1deg);}
+      50%{transform:translate(0,4%) rotate(0deg);}
+      75%{transform:translate(-2%,2%) rotate(-1deg);}
+    }
+
+    /* Header */
+    header{
+      position:relative;z-index:10;
+      padding:2rem 1.5rem 4rem;
+      text-align:center;
+      background:linear-gradient(180deg,var(--bg-secondary) 0%,transparent 100%);
+    }
+    .logo-container{
+      display:inline-flex;align-items:center;gap:.75rem;
+      margin-bottom:2rem;padding:.75rem 1.5rem;
+      background:var(--bg-card);
+      border-radius:100px;border:1px solid var(--border-color);
+    }
+    .logo-icon{
+      width:40px;height:40px;background:var(--gradient-1);
+      border-radius:12px;display:flex;align-items:center;justify-content:center;
+      font-size:1.25rem;
+    }
+    .logo-text{
+      font-weight:700;font-size:1.25rem;
+      background:var(--gradient-1);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    header h1{
+      font-size:clamp(2rem,5vw,3rem);
+      font-weight:700;margin-bottom:1rem;
+      background:linear-gradient(135deg,var(--text-primary) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .subtitle{color:var(--text-secondary);font-size:1.1rem;max-width:640px;margin:0 auto;}
+    .last-updated{
+      display:inline-flex;align-items:center;gap:.5rem;
+      margin-top:1.5rem;padding:.5rem 1rem;
+      background:var(--bg-card);
+      border-radius:100px;font-size:.875rem;color:var(--text-muted);
+      border:1px solid var(--border-color);
+    }
+    .last-updated::before{content:'📅';}
+
+    main{position:relative;z-index:10;max-width:900px;margin:0 auto;padding:0 1.5rem 4rem;}
+
+    /* TOC */
+    .toc{
+      background:var(--bg-card);
+      border:1px solid var(--border-color);
+      border-radius:20px;padding:2rem;margin-bottom:3rem;
+    }
+    .toc h2{
+      font-size:1rem;text-transform:uppercase;letter-spacing:.1em;
+      color:var(--text-muted);margin-bottom:1.25rem;
+      display:flex;align-items:center;gap:.5rem;
+    }
+    .toc h2::before{content:'📑';}
+    .toc-list{
+      list-style:none;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:.5rem;
+    }
+    .toc-list a{
+      display:flex;align-items:center;gap:.5rem;
+      padding:.75rem 1rem;color:var(--text-secondary);
+      text-decoration:none;border-radius:10px;transition:all .2s ease;font-size:.95rem;
+    }
+    .toc-list a:hover{background:var(--bg-elevated);color:var(--accent-secondary);transform:translateX(4px);}
+    .toc-list a::before{content:'→';color:var(--accent-primary);opacity:0;transition:opacity .2s ease;}
+    .toc-list a:hover::before{opacity:1;}
+
+    section{margin-bottom:3rem;}
+    .section-card{
+      background:var(--bg-card);
+      border:1px solid var(--border-color);
+      border-radius:20px;padding:2rem;
+      transition:transform .3s ease, box-shadow .3s ease;
+      opacity:0;transform:translateY(20px);
+      animation:fadeInUp .6s ease forwards;
+    }
+    section:nth-child(1) .section-card{animation-delay:.1s;}
+    section:nth-child(2) .section-card{animation-delay:.2s;}
+    section:nth-child(3) .section-card{animation-delay:.3s;}
+    section:nth-child(4) .section-card{animation-delay:.4s;}
+    section:nth-child(5) .section-card{animation-delay:.5s;}
+    section:nth-child(6) .section-card{animation-delay:.6s;}
+    section:nth-child(7) .section-card{animation-delay:.7s;}
+    section:nth-child(8) .section-card{animation-delay:.8s;}
+    section:nth-child(9) .section-card{animation-delay:.9s;}
+    section:nth-child(10) .section-card{animation-delay:1.0s;}
+    @keyframes fadeInUp{to{opacity:1;transform:translateY(0);}}
+
+    .section-card:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(0,0,0,.3);}
+    section h2{
+      font-size:1.5rem;font-weight:700;margin-bottom:1.5rem;
+      display:flex;align-items:center;gap:.75rem;color:var(--text-primary);
+    }
+    .section-icon{
+      width:44px;height:44px;background:var(--accent-glow);
+      border-radius:12px;display:flex;align-items:center;justify-content:center;
+      font-size:1.25rem;
+    }
+    section h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 .75rem;color:var(--text-primary);}
+    section p{color:var(--text-secondary);margin-bottom:1rem;}
+    section ul, section ol{color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;}
+    section li{margin-bottom:.5rem;}
+    section li::marker{color:var(--accent-primary);}
+
+    /* Table */
+    .data-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem;}
+    .data-table th{
+      background:var(--bg-elevated);padding:1rem;text-align:left;font-weight:600;
+      color:var(--text-primary);border-bottom:2px solid var(--accent-primary);
+    }
+    .data-table th:first-child{border-radius:10px 0 0 0;}
+    .data-table th:last-child{border-radius:0 10px 0 0;}
+    .data-table td{padding:1rem;border-bottom:1px solid var(--border-color);color:var(--text-secondary);}
+    .data-table tr:last-child td{border-bottom:none;}
+    .data-table tr:hover td{background:var(--bg-elevated);}
+
+    /* Tags */
+    .tag{display:inline-flex;align-items:center;padding:.25rem .75rem;border-radius:100px;font-size:.8rem;font-weight:500;}
+    .tag-required{background:rgba(239,68,68,.15);color:#f87171;}
+    .tag-optional{background:rgba(34,197,94,.15);color:#4ade80;}
+
+    /* Permission cards */
+    .permission-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0;}
+    .permission-card{
+      background:var(--bg-elevated);padding:1.25rem;border-radius:14px;
+      border:1px solid var(--border-color);
+    }
+    .permission-card.granted{border-color:rgba(34,197,94,.3);}
+    .permission-card.denied{border-color:rgba(239,68,68,.2);opacity:.75;}
+    .permission-header{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;}
+    .permission-icon{font-size:1.25rem;}
+    .permission-name{font-weight:600;color:var(--text-primary);}
+    .permission-desc{font-size:.875rem;color:var(--text-muted);}
+
+    /* Highlight boxes */
+    .highlight-box{
+      background:var(--accent-glow);
+      border-left:4px solid var(--accent-primary);
+      padding:1.25rem;border-radius:0 12px 12px 0;margin:1.5rem 0;
+    }
+    .highlight-box p{color:var(--text-primary);margin:0;}
+    .highlight-box strong{color:var(--accent-secondary);}
+
+    .warning-box{
+      background:rgba(245,158,11,.1);
+      border-left:4px solid var(--warning);
+      padding:1.25rem;border-radius:0 12px 12px 0;margin:1.5rem 0;
+    }
+    .warning-box p{color:var(--text-primary);margin:0;}
+
+    /* Check/cross list */
+    .check-list{list-style:none;padding:0;}
+    .check-list li{
+      display:flex;align-items:flex-start;gap:.75rem;
+      padding:.75rem 0;border-bottom:1px solid var(--border-color);
+    }
+    .check-list li:last-child{border-bottom:none;}
+    .check-list .icon{
+      flex-shrink:0;width:24px;height:24px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;font-size:.875rem;
+    }
+    .check-list .icon.yes{background:rgba(34,197,94,.15);color:#4ade80;}
+    .check-list .icon.no{background:rgba(239,68,68,.15);color:#f87171;}
+
+    /* Contact card */
+    .contact-card{background:var(--gradient-1);padding:2.5rem;border-radius:20px;text-align:center;}
+    .contact-card h2{justify-content:center;color:white;}
+    .contact-card p{color:rgba(255,255,255,.85);}
+    .contact-email{
+      display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;
+      padding:.75rem 1.5rem;background:rgba(255,255,255,.15);
+      backdrop-filter:blur(10px);
+      border-radius:100px;color:white;text-decoration:none;font-weight:500;
+      transition:all .2s ease;
+    }
+    .contact-email:hover{background:rgba(255,255,255,.25);transform:scale(1.02);}
+
+    footer{
+      position:relative;z-index:10;
+      text-align:center;padding:2rem;
+      border-top:1px solid var(--border-color);
+      color:var(--text-muted);font-size:.875rem;
+    }
+    footer a{color:var(--accent-secondary);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+
+    @media (max-width:640px){
+      header{padding:1.5rem 1rem 3rem;}
+      main{padding:0 1rem 3rem;}
+      .section-card{padding:1.5rem;}
+      .toc{padding:1.5rem;}
+      .data-table{display:block;overflow-x:auto;}
+      .permission-grid{grid-template-columns:1fr;}
+    }
+
+    /* Small code look */
+    code{
+      font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:.9em;
+      background:rgba(148,163,184,.08);
+      padding:.15rem .35rem;border-radius:8px;border:1px solid var(--border-color);
+      color:var(--text-primary);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-pattern"></div>
+
+  <header>
+    <div class="logo-container">
+      <div class="logo-icon">🛡️</div>
+      <span class="logo-text">Privora</span>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">
+      Privora is built around privacy. This policy explains what we collect, why we collect it, and how we protect it.
+    </p>
+    <div class="last-updated">Last Updated: December 22, 2025</div>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <h2>Quick Navigation</h2>
+      <ul class="toc-list">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#data-collected">Data We Collect</a></li>
+        <li><a href="#how-we-use">How We Use Data</a></li>
+        <li><a href="#encryption">Encryption & Security</a></li>
+        <li><a href="#permissions">App Permissions</a></li>
+        <li><a href="#sharing">Data Sharing</a></li>
+        <li><a href="#retention">Data Retention</a></li>
+        <li><a href="#your-rights">Your Rights & Choices</a></li>
+        <li><a href="#deletion">Account Deletion</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id="introduction">
+      <div class="section-card">
+        <h2><span class="section-icon">👋</span> Introduction</h2>
+        <p>
+          Welcome to Privora (“Privora”, “we”, “us”). Privora is a private messaging application designed to help you
+          communicate securely with people you choose.
+        </p>
+        <p>
+          This Privacy Policy explains how we collect, use, disclose, and protect your information when you use the
+          Privora mobile application and related services (collectively, the “Service”).
+        </p>
+        <div class="highlight-box">
+          <p><strong>Privacy by design:</strong> We aim to collect the minimum amount of data needed to operate the Service.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="data-collected">
+      <div class="section-card">
+        <h2><span class="section-icon">📊</span> Data We Collect</h2>
+
+        <h3>Account & Profile</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Purpose</th>
+              <th>Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Email address</strong></td>
+              <td>Account creation, authentication, security, account recovery</td>
+              <td><span class="tag tag-required">Required</span></td>
+            </tr>
+            <tr>
+              <td><strong>User ID / username</strong></td>
+              <td>Account identity, messaging, friend connections</td>
+              <td><span class="tag tag-required">Required</span></td>
+            </tr>
+            <tr>
+              <td><strong>Display name</strong></td>
+              <td>Shown in chats and profiles</td>
+              <td><span class="tag tag-required">Required</span></td>
+            </tr>
+            <tr>
+              <td><strong>Phone number</strong></td>
+              <td>Optional friend discovery and account security (if provided)</td>
+              <td><span class="tag tag-optional">Optional</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Messages & Media</h3>
+        <ul>
+          <li><strong>In-app messages:</strong> message content is stored and delivered in encrypted form (see <a href="#encryption" style="color: var(--accent-secondary); text-decoration:none;">Encryption & Security</a>).</li>
+          <li><strong>Photos and videos:</strong> media you choose to send is uploaded and stored in encrypted form.</li>
+          <li><strong>Voice messages:</strong> audio you record and send is uploaded and stored in encrypted form.</li>
+          <li><strong>Files and documents:</strong> attachments you choose to send are uploaded and stored in encrypted form.</li>
+          <li><strong>Other user-generated content:</strong> content you create in the app (e.g., stories, captions, reactions, profile status) depending on features you use.</li>
+        </ul>
+
+        <h3>Contacts (Optional)</h3>
+        <p>
+          If you enable contact discovery, Privora may access contacts on your device to help you find people you know.
+          We use privacy-preserving techniques (e.g., hashing) to reduce exposure of raw contact details.
+        </p>
+
+        <h3>Device & App Data</h3>
+        <ul>
+          <li><strong>Device identifiers / push tokens:</strong> used to deliver notifications and help secure accounts.</li>
+          <li><strong>App interactions:</strong> basic usage events for analytics and product improvement.</li>
+          <li><strong>Crash logs & diagnostics:</strong> error reports to improve stability and performance.</li>
+        </ul>
+
+        <h3>Data We Do Not Collect</h3>
+        <ul class="check-list">
+          <li><span class="icon yes">✓</span><div><strong>No precise location tracking</strong><p>Privora does not collect or share your precise location.</p></div></li>
+          <li><span class="icon yes">✓</span><div><strong>No financial information</strong><p>We do not collect payment card or bank account information.</p></div></li>
+          <li><span class="icon yes">✓</span><div><strong>No web browsing history</strong><p>We do not collect your browsing or search history.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="how-we-use">
+      <div class="section-card">
+        <h2><span class="section-icon">⚙️</span> How We Use Data</h2>
+
+        <ul class="check-list">
+          <li>
+            <span class="icon yes">✓</span>
+            <div>
+              <strong>Provide the Service</strong>
+              <p>Create and manage accounts, deliver messages and media, and enable features you choose to use.</p>
+            </div>
+          </li>
+
+          <li>
+            <span class="icon yes">✓</span>
+            <div>
+              <strong>Security & abuse prevention</strong>
+              <p>Protect accounts, reduce spam/abuse, and enforce our Terms of Service.</p>
+            </div>
+          </li>
+
+          <li>
+            <span class="icon yes">✓</span>
+            <div>
+              <strong>Reliability & improvement</strong>
+              <p>Use crash logs, diagnostics, and limited analytics to fix bugs and improve performance.</p>
+            </div>
+          </li>
+
+          <li>
+            <span class="icon yes">✓</span>
+            <div>
+              <strong>Support</strong>
+              <p>Respond to support requests and help troubleshoot issues.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="warning-box">
+          <p><strong>Note:</strong> Privora is a messaging platform. Users may send content to each other. You are responsible for what you share.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="encryption">
+      <div class="section-card">
+        <h2><span class="section-icon">🔐</span> Encryption & Security</h2>
+
+        <h3>End-to-end encryption (E2EE)</h3>
+        <p>
+          Privora is designed so that message content is encrypted before it leaves your device and can only be
+          decrypted by the intended recipients.
+        </p>
+        <div class="highlight-box">
+          <p><strong>Important:</strong> Even with E2EE, some technical data (like routing and delivery metadata) may exist to operate the Service.</p>
+        </div>
+
+        <h3>Encryption in transit</h3>
+        <p>All network traffic between your app and our servers uses <strong>HTTPS/TLS</strong>.</p>
+
+        <h3>Storage security</h3>
+        <ul>
+          <li>Access to production systems is restricted and monitored.</li>
+          <li>Passwords are stored using secure hashing.</li>
+          <li>We regularly update dependencies and apply security patches.</li>
+        </ul>
+
+        <h3>Biometrics</h3>
+        <p>
+          If you enable biometric features (e.g., app lock or biometric login), biometric data stays on your device.
+          Privora does not receive or store your fingerprint/face data.
+        </p>
+      </div>
+    </section>
+
+    <section id="permissions">
+      <div class="section-card">
+        <h2><span class="section-icon">🧩</span> App Permissions</h2>
+
+        <h3>Permissions we may request</h3>
+        <div class="permission-grid">
+          <div class="permission-card granted">
+            <div class="permission-header">
+              <span class="permission-icon">🌐</span>
+              <span class="permission-name">Internet</span>
+            </div>
+            <p class="permission-desc">Connect to Privora services over HTTPS</p>
+          </div>
+
+          <div class="permission-card granted">
+            <div class="permission-header">
+              <span class="permission-icon">🔔</span>
+              <span class="permission-name">Notifications</span>
+            </div>
+            <p class="permission-desc">Notify you about new messages (optional)</p>
+          </div>
+
+          <div class="permission-card granted">
+            <div class="permission-header">
+              <span class="permission-icon">📷</span>
+              <span class="permission-name">Camera</span>
+            </div>
+            <p class="permission-desc">Capture photos/videos to send (optional)</p>
+          </div>
+
+          <div class="permission-card granted">
+            <div class="permission-header">
+              <span class="permission-icon">🎤</span>
+              <span class="permission-name">Microphone</span>
+            </div>
+            <p class="permission-desc">Record voice messages (optional)</p>
+          </div>
+
+          <div class="permission-card granted">
+            <div class="permission-header">
+              <span class="permission-icon">🖼️</span>
+              <span class="permission-name">Photos & Media</span>
+            </div>
+            <p class="permission-desc">Attach and save media/files (optional)</p>
+          </div>
+
+          <div class="permission-card granted">
+            <div class="permission-header">
+              <span class="permission-icon">👥</span>
+              <span class="permission-name">Contacts</span>
+            </div>
+            <p class="permission-desc">Find friends using your address book (optional)</p>
+          </div>
+
+          <div class="permission-card granted">
+            <div class="permission-header">
+              <span class="permission-icon">🔒</span>
+              <span class="permission-name">Biometrics</span>
+            </div>
+            <p class="permission-desc">App lock / optional biometric login (optional)</p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Contacts permission:</strong> Contact discovery is optional. You can still add friends manually using usernames.
+            Where supported, we minimize exposure by processing contacts locally and using hashed identifiers for matching.
+          </p>
+        </div>
+
+        <h3>Permissions we do not request</h3>
+        <div class="permission-grid">
+          <div class="permission-card denied">
+            <div class="permission-header">
+              <span class="permission-icon">📍</span>
+              <span class="permission-name">Precise location</span>
+            </div>
+            <p class="permission-desc">Privora does not require location access</p>
+          </div>
+          <div class="permission-card denied">
+            <div class="permission-header">
+              <span class="permission-icon">📞</span>
+              <span class="permission-name">Call logs</span>
+            </div>
+            <p class="permission-desc">We do not access call history</p>
+          </div>
+          <div class="permission-card denied">
+            <div class="permission-header">
+              <span class="permission-icon">💬</span>
+              <span class="permission-name">SMS</span>
+            </div>
+            <p class="permission-desc">We do not read or send SMS by default</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sharing">
+      <div class="section-card">
+        <h2><span class="section-icon">🤝</span> Data Sharing</h2>
+
+        <h3>We do not sell your data</h3>
+        <ul class="check-list">
+          <li><span class="icon no">✗</span><div>We do <strong>not</strong> sell personal information.</div></li>
+          <li><span class="icon no">✗</span><div>We do <strong>not</strong> share data with advertisers for targeted ads.</div></li>
+        </ul>
+
+        <h3>Service providers</h3>
+        <p>
+          We may use trusted service providers to operate the Service (for example: hosting, infrastructure, and
+          crash reporting). They process data on our behalf under agreements designed to protect your information.
+        </p>
+
+        <h3>Legal & safety</h3>
+        <p>
+          We may disclose information if required by law or if necessary to protect users, prevent abuse, or defend our
+          legal rights.
+        </p>
+      </div>
+    </section>
+
+    <section id="retention">
+      <div class="section-card">
+        <h2><span class="section-icon">🗃️</span> Data Retention</h2>
+        <ul>
+          <li><strong>Account data</strong> is retained while your account is active.</li>
+          <li><strong>Messages and media</strong> may be retained (in encrypted form) to support delivery, history, and features you use.</li>
+          <li><strong>Crash logs/diagnostics</strong> are retained for a limited period to improve reliability.</li>
+        </ul>
+
+        <div class="warning-box">
+          <p>
+            <strong>Tip:</strong> If you want exact retention windows (e.g., “deleted within 30 days”), set them in your backend
+            and update this section to match.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="your-rights">
+      <div class="section-card">
+        <h2><span class="section-icon">⚖️</span> Your Rights & Choices</h2>
+
+        <ul>
+          <li><strong>Access:</strong> You can view and update your profile in the app.</li>
+          <li><strong>Optional permissions:</strong> You can deny contacts/camera/microphone permissions and still use core messaging.</li>
+          <li><strong>Delete:</strong> You can request deletion of your account and associated data (see below).</li>
+        </ul>
+
+        <div class="warning-box">
+          <p><strong>Children’s privacy:</strong> Privora is not intended for children under 13. We do not knowingly collect data from children.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="deletion">
+      <div class="section-card">
+        <h2><span class="section-icon">🗑️</span> Account Deletion</h2>
+
+        <p>
+          You can request deletion of your Privora account and associated data using our deletion page:
+          <code>https://privora.app/delete-account</code>
+        </p>
+
+        <h3>What gets deleted</h3>
+        <ul>
+          <li>Your account profile (email, username, display name, phone if provided)</li>
+          <li>Encrypted content stored for your account (messages/media/files), where applicable</li>
+          <li>Contact discovery data associated with your account (if used)</li>
+          <li>Device tokens used for notifications</li>
+        </ul>
+
+        <h3>What may be retained</h3>
+        <ul>
+          <li>Limited security/audit logs for fraud prevention and legal compliance (where required)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-card contact-card">
+        <h2>📬 Contact</h2>
+        <p>Questions about privacy, data requests, or this policy? Contact us.</p>
+        <a href="mailto:privacy@privora.app" class="contact-email">✉️ privacy@privora.app</a>
+        <div style="margin-top: .75rem; color: rgba(255,255,255,.85); font-size: .95rem;">
+          Support: <a href="mailto:support@privora.app" style="color: rgba(255,255,255,.95); text-decoration: underline;">support@privora.app</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Privora. All rights reserved.</p>
+    <p class="muted">
+      This Privacy Policy is provided for transparency and should be kept consistent with your in-app behavior and Play Console Data Safety disclosures.
+    </p>
+  </footer>
+</body>
+</html>
