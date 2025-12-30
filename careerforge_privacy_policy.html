@@ -1,1 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — CareerForge</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --muted:#9fb0d0;
+      --text:#eaf0ff;
+      --accent:#7aa7ff;
+      --accent2:#a78bfa;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(122,167,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 80% 10%, rgba(167,139,250,.22), transparent 55%),
+        linear-gradient(180deg, #070b14, var(--bg));
+      min-height:100vh;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 42px 18px 70px;
+    }
+    header{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom: 22px;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:44px;height:44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(122,167,255,.95), rgba(167,139,250,.95));
+      box-shadow: 0 12px 30px rgba(122,167,255,.20);
+    }
+    h1{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: .2px;
+      line-height:1.2;
+    }
+    .sub{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size: 14px;
+    }
+    .pillbar{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    .pill{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      backdrop-filter: blur(8px);
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-inner{
+      padding: 22px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 860px){
+      .grid{
+        grid-template-columns: 1.2fr .8fr;
+        gap: 16px;
+      }
+    }
+    h2{
+      margin: 20px 0 10px;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    p, li{
+      color: rgba(234,240,255,.92);
+      line-height: 1.65;
+      font-size: 14.5px;
+    }
+    ul{margin:10px 0 0; padding-left: 18px}
+    .note{
+      border:1px solid var(--border);
+      background: rgba(122,167,255,.08);
+      border-radius: 14px;
+      padding: 14px 14px;
+      color: var(--text);
+    }
+    .note strong{color:#fff}
+    .kvs{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .kv{
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .kv:last-child{border-bottom:none}
+    .k{color: var(--muted); font-size: 12.5px}
+    .v{font-family: var(--mono); font-size: 12.5px; color: rgba(234,240,255,.92)}
+    .toc{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 12px 0 4px;
+    }
+    .toc a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      font-size: 12.5px;
+      color: rgba(234,240,255,.92);
+      text-decoration:none;
+    }
+    .toc a:hover{background: rgba(255,255,255,.08)}
+    footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12.5px;
+      text-align:center;
+    }
+    code{
+      font-family: var(--mono);
+      font-size: 12.5px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      padding: 2px 6px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Privacy Policy</h1>
+          <div class="sub">CareerForge — Effective date: <strong>[EFFECTIVE_DATE]</strong></div>
+        </div>
+      </div>
+      <div class="pillbar">
+        <div class="pill">Version: 1.0</div>
+        <div class="pill">Contact: <a href="mailto:[YOUR_EMAIL]">[YOUR_EMAIL]</a></div>
+      </div>
+    </header>
 
+    <div class="card">
+      <div class="card-inner grid">
+        <div>
+          <p>
+            This Privacy Policy explains how <strong>[YOUR_COMPANY]</strong> (“we”, “us”, “our”) collects, uses, and protects
+            information when you use the CareerForge mobile application (the “App”) and related services.
+          </p>
+
+          <div class="note">
+            <strong>Summary:</strong> CareerForge stores your account and career data (like resumes and job tracking entries)
+            to provide the app’s functionality. We do not sell your personal information.
+          </div>
+
+          <div class="toc" aria-label="Table of contents">
+            <a href="#data-we-collect">Data we collect</a>
+            <a href="#how-we-use">How we use data</a>
+            <a href="#sharing">Sharing</a>
+            <a href="#security">Security</a>
+            <a href="#your-rights">Your rights</a>
+            <a href="#retention">Retention</a>
+            <a href="#children">Children</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <h2 id="data-we-collect">1) Data we collect</h2>
+          <p>Depending on how you use the App, we may collect:</p>
+          <ul>
+            <li><strong>Account information:</strong> email address, password (stored securely as a hash), profile name (optional).</li>
+            <li><strong>User content:</strong> resume content (sections like summary, experience, education, skills, projects, etc.) and job-tracking entries (company, role, notes, status).</li>
+            <li><strong>Files you upload:</strong> attachments you choose to add to a job application (e.g., resume PDF, cover letter, offer letter).</li>
+            <li><strong>AI feature usage:</strong> prompts/results history and credit usage (if you use AI tools in the App).</li>
+            <li><strong>Diagnostics (optional):</strong> basic logs to troubleshoot errors (only if enabled in the App build).</li>
+          </ul>
+
+          <h2 id="how-we-use">2) How we use your information</h2>
+          <ul>
+            <li>Provide core features: resume building, exporting, job tracking, reminders, and attachments.</li>
+            <li>Authenticate you and secure your account.</li>
+            <li>Process exports (PDF/DOCX) and enable re-download from Export History.</li>
+            <li>Enable AI tools (rewrite bullets, ATS scoring, cover letters, etc.) and track credit usage.</li>
+            <li>Improve reliability, fix bugs, and prevent abuse.</li>
+          </ul>
+
+          <h2 id="sharing">3) Sharing of data</h2>
+          <p>
+            We do <strong>not</strong> sell your personal information. We may share limited data only when necessary to provide the service:
+          </p>
+          <ul>
+            <li><strong>Service providers</strong> (e.g., hosting) that process data on our behalf under confidentiality obligations.</li>
+            <li><strong>Legal requests</strong> if required to comply with applicable law or protect rights/safety.</li>
+          </ul>
+          <p>
+            If we integrate third-party analytics/ads in the future, we will update this policy and the Google Play Data Safety disclosures accordingly.
+          </p>
+
+          <h2 id="security">4) Security</h2>
+          <ul>
+            <li>We use industry-standard security practices to protect your data.</li>
+            <li>Data is intended to be transmitted over <strong>HTTPS</strong> (encrypted in transit) in production.</li>
+            <li>Passwords are stored as secure hashes, not in plain text.</li>
+          </ul>
+
+          <h2 id="your-rights">5) Your choices & rights</h2>
+          <ul>
+            <li><strong>Access & update:</strong> You can update your resume and job tracker information in the App.</li>
+            <li><strong>Export:</strong> You can export resumes (PDF/DOCX) and re-download from Export History.</li>
+            <li><strong>Delete:</strong> You can request deletion of your account and associated data by contacting us at <a href="mailto:[YOUR_EMAIL]">[YOUR_EMAIL]</a>.</li>
+          </ul>
+
+          <h2 id="retention">6) Data retention</h2>
+          <p>
+            We retain your data as long as your account is active to provide the service. If you request deletion, we will delete or anonymize
+            your data unless we are required to keep certain information for legal or security reasons.
+          </p>
+
+          <h2 id="children">7) Children’s privacy</h2>
+          <p>
+            CareerForge is intended for users aged <strong>13+</strong> (recommended store targeting is 18+). We do not knowingly collect personal
+            information from children under 13. If you believe a child has provided personal information, contact us and we will take appropriate steps to delete it.
+          </p>
+
+          <h2>8) Changes to this policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. We will post the updated version on this page and update the “Effective date”.
+          </p>
+
+          <h2 id="contact">9) Contact</h2>
+          <p>
+            If you have questions or requests about privacy, contact:
+            <br />
+            <strong>[YOUR_COMPANY]</strong><br />
+            Email: <a href="mailto:[YOUR_EMAIL]">[YOUR_EMAIL]</a><br />
+            Website: <a href="[YOUR_DOMAIN]" target="_blank" rel="noreferrer">[YOUR_DOMAIN]</a>
+          </p>
+        </div>
+
+        <aside>
+          <div class="kvs">
+            <div class="kv"><div class="k">Controller</div><div class="v">[YOUR_COMPANY]</div></div>
+            <div class="kv"><div class="k">App</div><div class="v">CareerForge</div></div>
+            <div class="kv"><div class="k">Primary data</div><div class="v">Account + Resume + Job Tracker</div></div>
+            <div class="kv"><div class="k">Data sharing</div><div class="v">No selling</div></div>
+            <div class="kv"><div class="k">Contact</div><div class="v">[YOUR_EMAIL]</div></div>
+            <div class="kv"><div class="k">Delete request</div><div class="v">Email us</div></div>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="note">
+            <strong>Tip:</strong> Add an in-app screen: <code>Settings → Privacy Policy</code> linking to this URL (Google expects a link in Play Console and within the app). :contentReference[oaicite:13]{index=13}
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="y"></span> [YOUR_COMPANY]. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
